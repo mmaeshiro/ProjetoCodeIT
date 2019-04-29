@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ProjetoCodeIT.Web.ViewModels.ItemViagemViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<form id="form01">
+    <h2>Viagem</h2>
+
+    <p>
+        @Html.ActionLink("Novo", "Create")
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Código")
+            </th>
+            <th>
+                @Html.DisplayName("Produto")
+            </th>
+            <th>
+                @Html.DisplayName("Frete")
+            </th>
+            <th>
+                @Html.DisplayName("Tempo")
+            </th>
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idItemViagem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.produtoViewModel.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.freteViewModel.valor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.freteViewModel.tempo)
+                </td>
+        
+            </tr>
+        }
+
+    </table>
+
+    <div class="form-actions no-color">
+        <input type="button" value="Gerar Viagem" class="btn-gerar-viagem btn btn-secondary" />
+    </div>
+
+</form>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/scripts/viagem")
+
+<script type="text/javascript">
+
+    var urlViagem = "@Url.Action("GerarViagem", "Viagem")";
+    var urlViagemResultado = "@Url.Action("ResultadoViagem", "Viagem")";
+
+        $(function () {
+            window.initScript(urlViagem, urlViagemResultado);
+        });
+
+</script>

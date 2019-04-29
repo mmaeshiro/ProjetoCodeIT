@@ -1,0 +1,58 @@
+﻿@model ProjetoCodeIT.Dominio.ObjetoValor.ViagemResultadoObjetoValor
+
+@{
+    ViewBag.Title = "GerarViagem";
+}
+
+<form>
+
+    <h2>Resultado de Viagem</h2>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("Frete")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.totalFrete)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Produtos")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.produtos)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Valores")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.valores)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Tempo")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tempo)
+            </dd>
+
+
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+
+
+</form>
+
+
